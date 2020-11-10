@@ -3,6 +3,9 @@ from rest_framework.response import Response
 from .serializers import RegisterSerializer, UserSerializer
 from django.contrib.auth.models import User
 
+from rest_framework.views import APIView
+from rest_framework.permissions import IsAuthenticated
+
 #Register API
 class RegisterApi(generics.GenericAPIView):
     serializer_class = RegisterSerializer
@@ -14,4 +17,11 @@ class RegisterApi(generics.GenericAPIView):
             "user": UserSerializer(user, context=self.get_serializer_context()).data,
             "message": "User Created Successfully.  Now perform Login to get your token",
         })
+
+
+class TokenApI(APIView):
+    permission_classes = (IsAuthenticated,)
+    def get(self, request):
+        content = {'message': 'Hello!'}
+        return Response(content)
 
