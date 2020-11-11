@@ -1,6 +1,6 @@
 from django.urls import path
 from api.views import  RegisterApi, TokenApI, UserListCreate
-from rest_framework_simplejwt import views as jwt_views
+from rest_framework_jwt import views as jwt_views
 
 urlpatterns = [
     path('register/', RegisterApi.as_view(), name="register"),

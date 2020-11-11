@@ -50,7 +50,7 @@ INSTALLED_APPS = [
     'rest_framework',
 
     #JWT authentication backend library
-    'rest_framework_simplejwt',
+    # 'rest_framework_simplejwt',
 ]
 
 MIDDLEWARE = [
@@ -144,7 +144,7 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 #jwt token with rest framework
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
-        'rest_framework_simplejwt.authentication.JWTAuthentication',
+        'rest_framework_jwt.authentication.JWTAuthentication',
     ),
 }
 
