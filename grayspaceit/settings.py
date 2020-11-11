@@ -50,7 +50,7 @@ INSTALLED_APPS = [
     'rest_framework',
 
     #JWT authentication backend library
-    # 'rest_framework_simplejwt',
+    #'rest_framework_jwt',
 ]
 
 MIDDLEWARE = [
