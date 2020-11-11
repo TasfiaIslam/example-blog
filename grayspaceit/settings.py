@@ -40,6 +40,7 @@ INSTALLED_APPS = [
 
     'posts',
     'api',
+    'frontend',
 
     #REST API implementation library for django
     'rest_framework',

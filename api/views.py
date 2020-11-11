@@ -25,3 +25,11 @@ class TokenApI(APIView):
         content = {'message': 'Hello!'}
         return Response(content)
 
+class UserList(generics.GenericAPIView):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
+
+    def get(self, request):
+        content = {'message': 'Hello!'}
+        return Response(content)
+

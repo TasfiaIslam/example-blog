@@ -1,5 +1,5 @@
 from django.urls import path
-from api.views import  RegisterApi, TokenApI
+from api.views import  RegisterApi, TokenApI, UserListCreate
 from rest_framework_simplejwt import views as jwt_views
 
 urlpatterns = [
@@ -10,4 +10,6 @@ urlpatterns = [
     path('token/refresh/', jwt_views.TokenRefreshView.as_view(), name ='token_refresh'),
 
     path('hello/', TokenApI.as_view() ),
+
+    
 ]
