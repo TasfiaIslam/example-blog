@@ -1,6 +1,6 @@
 from rest_framework import generics, permissions, mixins
 from rest_framework.response import Response
-from .serializers import RegisterSerializer, UserSerializer
+from .serializers import RegisterSerializer, UserLoginSerializer
 from django.contrib.auth.models import User
 
 from rest_framework.views import APIView
@@ -14,7 +14,7 @@ class RegisterApi(generics.GenericAPIView):
         serializer.is_valid(raise_exception=True)
         user = serializer.save()
         return Response({
-            "user": UserSerializer(user, context=self.get_serializer_context()).data,
+            "user": UserLoginSerializer(user, context=self.get_serializer_context()).data,
             "message": "User Created Successfully.  Now perform Login to get your token",
         })
 
@@ -27,7 +27,7 @@ class TokenApI(APIView):
 
 class UserList(generics.GenericAPIView):
     queryset = User.objects.all()
-    serializer_class = UserSerializer
+    serializer_class = UserLoginSerializer
 
     def get(self, request):
         content = {'message': 'Hello!'}

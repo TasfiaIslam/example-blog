@@ -23,7 +23,7 @@ class RegisterSerializer(serializers.ModelSerializer):
         return user
         
 # User serializer
-class UserSerializer(serializers.ModelSerializer):
+class UserLoginSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = '__all__'
